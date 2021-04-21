@@ -1,0 +1,320 @@
+/* CSS Document */
+
+/*-------------------------
+Global
+--------------------------*/
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500&display=swap');
+
+*{
+	margin: 0px;
+	padding: 0px;
+	box-sizing: border-box;
+}
+body{
+	font-size: 14px;
+	font-family: 'Montserrat', sans-serif;
+}
+.m-0{
+	margin: 0px;
+}
+.p-0{
+	padding: 0px;
+}
+.pt-5{
+	padding-top: 50px;
+}
+.wht{
+	color: #fff;
+}
+.bark-bg{
+	background: #2c2c2c;
+}
+.position-relative{
+	position: relative;
+}
+.border-r{
+    border-right: solid 2px rgb(242 242 242 / 20%);
+}
+/*-------------------------
+End Global
+--------------------------*/
+/*-------------------------
+Typography
+--------------------------*/
+h1{
+	font-size: 20px;
+	line-height: 28px;
+	margin-bottom: 10px;
+}
+h2{
+	font-size: 18px;
+	line-height: 26px;
+	margin-bottom: 10px;
+}
+h3{
+	font-size: 16px;
+	line-height: 24px;
+	margin-bottom: 10px;
+	letter-spacing: 2px;
+}
+h3{
+	font-size: 14px;
+	line-height: 22px;
+	margin-bottom: 10px;
+}
+h5{
+	font-size: 10px;
+	line-height: 18px;
+	margin-bottom: 10px;
+	color: rgba(255,255,255, 0.5);
+	letter-spacing: 2px;
+}
+p {
+    font-size: 14px;
+    line-height: 22px;
+}
+.name-title{
+	font-weight: 500;
+    letter-spacing: 2px;
+	color: #fff;
+}
+/*-------------------------
+End Typography
+--------------------------*/
+/*-------------------------
+Layout
+--------------------------*/
+.container{
+	max-width: 440px;
+	margin: 0 auto;
+	padding: 0px 20px;
+}
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+.column {
+    -ms-flex-preferred-size: 0;
+    flex-basis: 0;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    max-width: 100%;
+}
+/*-------------------------
+End Layout
+--------------------------*/
+/*-------------------------
+Header
+--------------------------*/
+.header{
+	padding:60px 0px;
+	background: url("../images/header-bg.jpg");
+	border-radius: 25px 25px 0px 0px;
+	text-align: center;
+	background-size: cover;
+}
+.profile{
+	width: 80px;
+	height: 80px;
+	margin: 0 auto 15px;
+	position: relative;
+}
+.profle-container {
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+.profile .profile-img {
+    position: absolute;
+    left: -50%;
+    right: -50%;
+    margin: 0 auto;
+}
+img.check {
+    position: absolute;
+    bottom: 15px;
+    z-index: 99;
+    right: -10px;
+    box-shadow: 5px 5px 8px rgb(0 0 0 / 20%);
+    border-radius: 50%;
+}
+.identity {
+    border: solid 2px rgb(255 255 255 / 50%);
+    border-radius: 50px;
+    width: auto;
+    display: inline-block;
+    padding: 12px 12px;
+    color: #fff;
+    font-weight: 500;
+    background: rgb(0 0 0 / 20%);
+	margin: 5px 0px;
+}
+/*-------------------------
+End Header
+--------------------------*/
+
+/*-------------------------
+Section
+--------------------------*/
+
+/*---infobar---*/
+.infobar {
+    background: #363636;
+    padding: 25px 0px;
+    text-align: center;
+    color: #fff;
+    position: absolute;
+    border-radius: 25px;
+    width: 90%;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    top: -50px;
+	box-shadow: 0px 10px 10px rgb(0 0 0 / 25%);
+}
+.infobar * {
+	margin: 0px;
+}
+/*---infobar---*/
+/*---details---*/
+.detail{
+	padding: 10px 45px;
+	margin: 5px 0px;
+}
+.detail *{
+	margin: 0px;
+}
+/*---end details--*/
+/*---Current course---*/
+.accordian{
+	background: #333333;
+}
+.accordian-title {
+    padding: 15px 45px;
+    display: flex;
+    align-items: center;
+	margin: 5px 0px;
+	cursor: pointer;
+}
+span.ripple {
+    margin-right: 30px;
+    position: relative;
+    width: 37px;
+    height: 37px;
+	z-index: 12;
+}
+.ripple img {
+    position: relative;
+    z-index: 12;
+}
+.ripple::after {
+	 opacity: 0;
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: center;
+	 align-items: center;
+	 position: absolute;
+	 top: -8px;
+	 left: -8px;
+	 right: 0;
+	 bottom: 0;
+	 content: '';
+	 height: 100%;
+	 width: 100%;
+	 border:8px solid rgb(239 39 120 / 50%);
+	 border-radius: 100%;
+	 animation-name: ripple;
+	 animation-duration: 3s;
+	 animation-delay: 0s;
+	 animation-iteration-count: infinite;
+	 animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+	 z-index:9;
+}
+ .ripple::before {
+	 opacity: 0;
+	 display: flex;
+	 flex-direction: row;
+	 justify-content: center;
+	 align-items: center;
+	 position: absolute;
+	 top: -8px;
+	 left: -8px;
+	 right: 0;
+	 bottom: 0;
+	 content: '';
+	 height: 100%;
+	 width: 100%;
+	 border:8px solid rgb(239 39 120 / 50%);
+	 border-radius: 100%;
+	 animation-name: ripple;
+	 animation-duration: 3s;
+	 animation-delay: 0.5s;
+	 animation-iteration-count: infinite;
+	 animation-timing-function: cubic-bezier(0.65, 0, 0.34, 1);
+	 z-index: 10;
+}
+
+
+@keyframes ripple {
+  from {
+    opacity: 1;
+    transform: scale3d(0.75,0.75,1);
+  }
+  
+  to {
+    opacity: 0;
+    transform: scale3d(1.5,1.5,1);
+  }
+}
+span.arrow {
+    margin-left: auto;
+}
+.accordian-content {
+    padding: 0px 30px 45px;
+    display: none;
+}
+.accordian.open .accordian-content{
+	display: block !important;
+}
+.accordian.open .arrow{
+	    transform: rotate(90deg);
+}
+/*---End Current course---*/
+/*---Photos---*/
+.img-thumb{
+	margin: 10px;
+	border-radius: 15px;
+	overflow: hidden;
+	position: relative;
+}
+.img-thumb img{
+	position: absolute;
+	left: -50%;
+	right: -50%;
+	top: -50%;
+	bottom:-50%;	
+	margin: 0 auto;
+}
+.img-thumb1{
+	width: 150px;
+	height: 150px;
+}
+.img-thumb2{
+	width: 150px;
+	height: 70px;
+}
+.img-thumb3{
+	width: auto;
+	height: 60px;
+}
+/*---End Photos --*/
+/*-------------------------
+End Section
+--------------------------*/
+
+
+

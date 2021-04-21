@@ -1,0 +1,138 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Open Study College</title>
+<link rel="stylesheet" href="css/style.css">	
+</head>
+
+<body>
+	
+	<header>
+		<div class="container">
+			<div class="header">
+				<div class="profile">
+					<div class="profle-container">
+						<img src="images/profile-img.png" class="profile-img" alt="">
+					</div>
+					<img src="images/check.png" class="check" alt="">
+				</div>
+				<h2 class="m-0 name-title" id="name">loading...</h2>
+				<h5 class="m-0">STUDENT</h5>
+				<div class="identity">ID: <span id="id">loading...</span></div>
+			</div>
+		</div>
+	</header>
+	<section>
+		<div class="container">
+			<div class="bark-bg position-relative pt-5">
+				<div class="infobar row">
+					<div class="column border-r">
+						<h3 id="status">loading...</h3>
+						<h5>ENROLMENT STATUS</h5>
+					</div>
+					<div class="column">
+						<h3 id="phase_id">loading...</h3>
+						<h5>COMPLETED COURSES</h5>
+					</div>
+				</div>
+				<div class="detail">
+					<h5>CONTACT DETAILS</h5>
+					<p class="wht">Email: <span id="email">loading...</span></p>
+					<p class="wht">Tel: <span id="contactno">loading...</span></p>
+				</div>
+				<div class="detail">
+					<h5>ABOUT ME</h5>
+					<p class="wht" id="description">loading...</p>
+				</div>
+				<div class="accordian">
+					<div class="accordian-title">
+						<span class="ripple">
+							<img src="images/cap.png" alt="">
+						</span>
+						<div>
+							<h3 class="wht m-0">Current Course:</h3>
+							<h5 id="course_title">loading...</h5>
+						</div>
+						<span class="arrow">
+							<img src="images/arrow.png" alt="">
+						</span>
+					</div>
+					<div class="accordian-content"></div>
+				</div>
+				<div class="accordian">
+					<div class="accordian-title">
+						<div><h3 class="wht m-0">My Photos</h3></div>
+						<span class="arrow">
+							<img src="images/arrow.png" alt="">
+						</span>
+					</div>
+					<div class="accordian-content">
+						<div class="row">
+							<div class="column">
+								<div class="img-thumb img-thumb1">
+									<img src="images/img1.png" alt="">
+								</div>
+							</div>
+							<div class="column">
+								<div class="img-thumb img-thumb2">
+									<img src="images/img2.png" alt="">
+								</div>
+								<div class="row">
+									<div class="column">
+										<div class="img-thumb img-thumb3">
+										<img src="images/img3.png" alt="">
+										</div>
+									</div>
+									<div class="column">
+										<div class="img-thumb img-thumb3">
+											<img src="images/img4.png" alt="">
+										</div>
+									</div>
+								</div>
+								
+							</div>
+						</div>
+					</div>
+				</div>	
+			</div>
+		</div>
+	</section>
+	
+	<script src="js/jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			
+			$(".accordian-title").click(function(){
+				$(this).parent().toggleClass("open")
+			})
+		})
+	</script>
+	
+	<script>
+		$(function(){
+			$.ajax({
+				type: "GET",
+				url: "http://leads.beta.openstudycollege.info/getTopLeads",
+				data:'',
+				dataType: "JSON",
+				success: function(data){
+					var length = data.length;
+					var rnd_index = Math.ceil(Math.random() * length) - 1;
+
+					var obj = data[rnd_index];
+					$("#name").html(obj.name);
+					$("#id").html(obj.id);
+					$("#email").html(obj.email);
+					$("#contactno").html(obj.telephone);
+					$("#description").html(obj.enquiry);
+					$("#course_title").html(obj.course_title);
+					$("#status").html(obj.status);
+					$("#phase_id").html(obj.phase_id);
+				}
+			})
+		})
+			
+    </script>
+</body>
+</html>
