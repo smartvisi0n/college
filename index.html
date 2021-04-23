@@ -99,40 +99,44 @@
 		</div>
 	</section>
 	
-	<script src="js/jquery-3.6.0.min.js"></script>
 	<script>
-		$(document).ready(function(){
-			
-			$(".accordian-title").click(function(){
-				$(this).parent().toggleClass("open")
-			})
-		})
+		var accordn = document.getElementsByClassName("accordian-title");
+		var i;
+
+		for (i = 0; i < accordn.length; i++) {
+		  accordn[i].addEventListener("click", function() {
+			  debugger
+			this.parentNode.classList.toggle("open");
+		  });
+		}
+		
 	</script>
 	
 	<script>
-		$(function(){
-			$.ajax({
-				type: "GET",
-				url: "http://leads.beta.openstudycollege.info/getTopLeads",
-				data:'',
-				dataType: "JSON",
-				success: function(data){
-					var length = data.length;
-					var rnd_index = Math.ceil(Math.random() * length) - 1;
+		
+		var request = new XMLHttpRequest()
 
-					var obj = data[rnd_index];
-					$("#name").html(obj.name);
-					$("#id").html(obj.id);
-					$("#email").html(obj.email);
-					$("#contactno").html(obj.telephone);
-					$("#description").html(obj.enquiry);
-					$("#course_title").html(obj.course_title);
-					$("#status").html(obj.status);
-					$("#phase_id").html(obj.phase_id);
-				}
-			})
-		})
-			
+			request.open('GET', 'http://leads.beta.openstudycollege.info/getTopLeads', true)
+			request.onload = function () {
+			  var data = JSON.parse(this.response)
+			  if (request.status >= 200 && request.status < 400) {
+				data.forEach((data) => {
+					document.getElementById("name").innerHTML = data.name;
+					document.getElementById("id").innerHTML = data.id;
+					document.getElementById("email").innerHTML = data.email;
+					document.getElementById("contactno").innerHTML = data.telephone;
+					document.getElementById("description").innerHTML = data.enquiry;
+					document.getElementById("course_title").innerHTML = data.course_title;
+					document.getElementById("status").innerHTML = data.status;
+					document.getElementById("phase_id").innerHTML = data.phase_id;
+				})
+			  } else {
+				console.log('error')
+			  }
+				
+			}
+
+			request.send()
     </script>
 </body>
 </html>
